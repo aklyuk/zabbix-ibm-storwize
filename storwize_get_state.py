@@ -159,7 +159,7 @@ def send_data_to_zabbix(zabbix_data, storage_name):
 		f.write("\n".join(zabbix_data))
 
 	send_code = subprocess.call([sender_command, "-vv", "-c", config_path, "-s", storage_name, "-T", "-i", temp_file], stdout = subprocess.PIPE, stderr = subprocess.PIPE)
-	#os.remove(temp_file)
+	os.remove(temp_file)
 	return send_code
 
 
